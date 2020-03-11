@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EasyBurger.Models.Usuario>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<!-- blog -->
+    <section class="blog_w3ls py-5" id="blog">
+        <div class="title-section text-center mb-md-5 mb-4">
+            <h3 class="w3ls-title mb-3">Nuestros <span>Clientes</span></h3>
+        </div>
+        <br /><br /><br /><br />
+        <div class="container py-xl-5 py-lg-3">
+            <div class="row">
+                @foreach (var cli in Model)
+                {
+                    <!-- blog grid -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0">
+                            <div class="card-header p-0 text-center">
+                                <img src="~/Content/images/1.jpg" alt="" class="img-blog rounded-circle img-fluid">
+                            </div>
+                            <div class="card-body text-center pt-5 mt-2">
+                                <h5 class="blog-title card-title mb-2"><a href="/Usuario/Details/@cli.Id">@cli.Nombre @cli.Apellido</a></h5>
+                                <div class="blog_w3icon border-top border-bottom py-1 mb-3">
+                                    <span>
+                                        @cli.Email
+                                    </span>
+                                </div>
+                                <a href="/Usuario/Details/@cli.Id" class="button-w3ls mt-4">
+                                    Detalles
+                                    <span class="fa fa-caret-right ml-1" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //blog grid -->
+                }
+            </div>
+        </div>
+    </section>
+<!-- //blog -->

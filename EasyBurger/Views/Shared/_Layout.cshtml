@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title - EasyBurger</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Tasty Burger Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+    </script>
+    <!--// Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link href="~/Content/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
+    <!-- css slider -->
+    <link rel="stylesheet" href="~/Content/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //Custom-Files -->
+    <!-- Web-Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- //Web-Fonts -->
+    <!-- LOGO ICON -->
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <!-- header -->
+    <header id="home">
+        <!-- top-bar -->
+        <div class="top-bar py-2 border-bottom">
+            <div class="container">
+                <div class="row middle-flex">
+                    <div class="col-xl-7 col-md-5 top-social-agile mb-md-0 mb-1 text-lg-left text-center">
+                        <div class="row">
+                            <div class="col-xl-3 col-6 header-top_w3layouts">
+                                <p class="text-da">
+                                    <span class="fa fa-map-marker mr-2"></span>Cordoba, Argentina
+                                </p>
+                            </div>
+                            <div class="col-xl-3 col-6 header-top_w3layouts">
+                                <p class="text-da">
+                                    <span class="fa fa-phone mr-2"></span>+54 3516333555
+                                </p>
+                            </div>
+                            <div class="col-xl-6"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-md-7 top-social-agile text-md-right text-center pr-sm-0 mt-md-0 mt-2">
+                        <div class="row middle-flex">
+                            @if (Session["usuario"] == null)
+                            {
+                                <div class="col-lg-5 col-4 top-w3layouts p-md-0 text-right">
+                                    <!-- login -->
+                                    <a href="/Usuario/Login" class="btn login-button-2 text-uppercase text-wh">
+                                        <span class="fa fa-sign-in mr-2"></span>Ingresar
+                                    </a>
+                                    <!-- //login -->
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-5 col-4 top-w3layouts p-md-0 text-right">
+                                    <!-- login -->
+                                    <a href="/Usuario/Logout" class="btn login-button-2 text-uppercase text-wh">
+                                        <span class="fa fa-sign-out mr-2"></span>Salir
+                                    </a>
+                                    <!-- //login -->
+                                </div>
+                            }
+                            <div class="col-lg-7 col-8 social-grid-w3">
+                                <!-- social icons -->
+                                <ul class="top-right-info">
+                                    <li>
+                                        <p>Sigueme:</p>
+                                    </li>
+                                    <li>
+                                        <a class="fa fa-github-alt text-dark" href="#facebook"></a>
+                                    </li>
+                                    <li>
+                                        <a class="fa fa-linkedin text-dark" href="#twitter"></a>
+                                    </li>
+                                </ul>
+                                <!-- //social icons -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- //top-bar -->
+    <!-- header 2 -->
+    <!-- navigation -->
+    <div class="main-top py-1">
+        <div class="container">
+            <div class="nav-content">
+                <!-- logo -->
+                <h1>
+                    <a id="logo" class="logo" href="/Home/Index">
+                        <img src="~/Content/images/logo.png" alt="" class="img-fluid"><span>Easy</span> Burger
+                    </a>
+                </h1>
+                <!-- //logo -->
+                <!-- nav -->
+                <div class="nav_web-dealingsls">
+                    <nav>
+                        <label for="drop" class="toggle">Menu</label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+                            <li><a href="/Home/Index">Inicio</a></li>
+                            <li><a href="/Home/About">Quienes Somos</a></li>
+                            <li><a href="/Usuario/Clientes">Nuestros Clientes</a></li>
+                            @if (Session["usuario"] != null)
+                            {
+                                <li>
+                                    <!-- First Tier Drop Down -->
+                                    <label for="drop-3" class="toggle toogle-2">
+                                        Perfil <span class="fa fa-angle-down"
+                                                     aria-hidden="true"></span>
+                                    </label>
+                                    <a href="#">Perfil <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                    <input type="checkbox" id="drop-3" />
+                                    <ul>
+                                        <li><a class="drop-text" href="/Usuario/Perfil">Ver</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            <li><a href="/Hamburguesa/Menu">Menu</a></li>
+                            <li><a href="/Home/Contact">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- //nav -->
+            </div>
+        </div>
+    </div>
+    <!-- //navigation -->
+    <!-- //header 2 -->
+  
+    <div class="container">
+        <!-- page details -->
+        <div class="breadcrumb-agile bg-light py-2">
+            <ol class="breadcrumb bg-light m-0">
+                <li class="breadcrumb-item">
+                    <a href="/Home/Index">Inicio</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="/Home/About">Quienes Somos</a>
+                </li>
+            </ol>
+        </div>
+        <!-- //page details -->
+
+        @RenderBody()
+        <hr />
+        <!-- footer -->
+        <footer class="py-5">
+            <div class="container py-xl-4">
+                <div class="row footer-top">
+                    <div class="col-lg-4 footer-grid_section_1its footer-text">
+                        <!-- logo -->
+                        <h2>
+                            <a class="logo text-wh" href="#">
+                                <img src="~/Content/images/logo.png" alt="" class="img-fluid"><span>Easy</span> Burger
+                            </a>
+                        </h2>
+                        <!-- //logo -->
+                        <p class="mt-lg-4 mt-3 mb-lg-5 mb-4">
+                            Sed ut perspiciatis unde omnis iste natus errorhjhsit lupt
+                            atem
+                            accursit lupt atem accu
+                            dfdsa
+                            ntium doloremque laudan tium accu santium dolore.
+                        </p>
+                        <!-- social icons -->
+                        <ul class="top-right-info">
+                            <li>
+                                <p>Sigueme:</p>
+                            </li>
+                            <li>
+                                <a class="fa fa-github" href="#"></a>
+                            </li>
+                            <li>
+                                <a class="fa fa-linkedin-square" href="#"></a>
+                            </li>
+                        </ul>
+                        <!-- //social icons -->
+                    </div>
+                    <div class="col-lg-4 footer-grid_section_1its my-lg-0 my-sm-4 my-4">
+                        <div class="footer-title">
+                            <h3>Contactanos</h3>
+                        </div>
+                        <div class="footer-text mt-4">
+                            <p>Direccion : Av. Colon 1234, Cordoba, Argentina</p>
+                            <p class="my-2">Tel : +54 3516333222</p>
+                            <p>Correo : <a href="mailto:easyburger@mail.com">easyburger@mail.com</a></p>
+                        </div>
+                        <div class="footer-title mt-4 pt-md-2">
+                            <h3>Metodos de Pago</h3>
+                        </div>
+                        <ul class="list-unstyled payment-links mt-4">
+                            <li>
+                                <a href="#"><img src="~/Content/images/pay2.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="~/Content/images/pay5.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="~/Content/images/pay1.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="~/Content/images/pay4.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+        <!-- copyright -->
+        <div class="cpy-right text-center py-3">
+            <p>
+                &copy; @DateTime.Now.Year EasyBurger. Todos Los Derechos Reservados
+            </p>
+        </div>
+        <!-- //copyright -->
+        <!-- move top icon -->
+        <a href="#home" class="move-top text-center">
+            <span class="fa fa-level-up" aria-hidden="true"></span>
+        </a>
+        <!-- //move top icon -->
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

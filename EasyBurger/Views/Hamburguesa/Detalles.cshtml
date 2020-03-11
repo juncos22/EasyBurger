@@ -1,0 +1,45 @@
+﻿@model EasyBurger.Models.Hamburguesa
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<!-- single page -->
+<div class="single-page py-5">
+    <div class="container py-xl-5 py-lg-3">
+        <div class="title-section text-center mb-md-5 mb-4">
+            <p class="w3ls-title-sub">Burger</p>
+            <h3 class="w3ls-title">Details</h3>
+        </div>
+        <div class="inner-sec">
+            <div class="row">
+                <!-- left side -->
+                <div class="col-lg-8 left-blog-info text-left">
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="#">
+                                    <img src="~/Content/images/@Model.Imagen" class="img-fluid" alt="No Disponible">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //left side -->
+                <!-- right side -->
+                <aside class="col-lg-4 right-blog-con text-right mt-lg-0 mt-5">
+                    <div class="right-blog-info text-left">
+                        <div class="tech-btm">
+                            <h4>@Model.Nombre ($@Model.Precio)</h4>
+                            <p>@Model.Descripcion</p>
+                            <p>Categoria: @Model.Categoria.Tipo</p>
+                            <a class="btn btn-success btn-block" href="/Pedido/Realizar/@Model.Id">Realizar Pedido</a>
+                        </div>
+                    </div>
+                </aside>
+                <!-- //right side -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //single -->
